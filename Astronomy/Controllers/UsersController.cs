@@ -21,7 +21,7 @@ namespace Astronomy.Controllers
         [HttpGet("GetUserById/{id}")]
         public User GetUserById(int id)
         {
-            return db.Users.Where(u => u.Id == id).First();
+            return db.Users.Where(u => u.Id == id).FirstOrDefault();
         }
 
         [HttpGet("GetUserByName/{searchTerm}")]

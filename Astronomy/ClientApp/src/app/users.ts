@@ -1,4 +1,4 @@
-export class User{
+export class AstroUser{
     id : number;
     name : string;
     city : string;

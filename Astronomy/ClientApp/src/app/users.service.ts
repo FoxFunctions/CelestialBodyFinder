@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from './users';
+import { AstroUser } from './users';
 
 @Injectable({
   providedIn: 'root'
@@ -18,28 +18,28 @@ export class UsersService {
     this.urlRoot = baseUrl;
   }
 
-  showAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.urlRoot + "/users/ShowAllUsers");
+  showAllUsers(): Observable<AstroUser[]> {
+    return this.http.get<AstroUser[]>(this.urlRoot + "/users/ShowAllUsers");
   }
 
-  getUserById(id : number): Observable<User> {
-    return this.http.get<User>(this.urlRoot + "/users/GetUserById/" + id);
+  getUserById(id : number): Observable<AstroUser> {
+    return this.http.get<AstroUser>(this.urlRoot + "users/GetUserById/" + id);
   }
 
-  getUserByName(searchTerm : string) : Observable <User[]>{
-    return this.http.get<User[]>(this.urlRoot + "/users/GetUserByName" + searchTerm);
+  getUserByName(searchTerm : string) : Observable <AstroUser[]>{
+    return this.http.get<AstroUser[]>(this.urlRoot + "/users/GetUserByName" + searchTerm);
   }
   
-  createUser(u : User) : Observable<User>{
-    return this.http.put<User>(this.urlRoot + "/users/CreateNewUser", u, this.requestOptions);
+  createUser(u : AstroUser) : Observable<AstroUser>{
+    return this.http.put<AstroUser>(this.urlRoot + "/users/CreateNewUser", u, this.requestOptions);
   }
 
-  updateUser(id : number, u : User) : Observable <User>{
-    return this.http.post<User>(this.urlRoot + "/users/UpdateUser/" + id, u, this.requestOptions);
+  updateUser(id : number, u : AstroUser) : Observable <AstroUser>{
+    return this.http.post<AstroUser>(this.urlRoot + "/users/UpdateUser/" + id, u, this.requestOptions);
   }
 
-  deleteUser(id : number) : Observable <User> {
-    return this.http.delete<User>(this.urlRoot + "/users/DeleteUser/" + id, this.requestOptions);
+  deleteUser(id : number) : Observable <AstroUser> {
+    return this.http.delete<AstroUser>(this.urlRoot + "/users/DeleteUser/" + id, this.requestOptions);
   }
 
 }

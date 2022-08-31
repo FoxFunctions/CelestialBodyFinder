@@ -1,0 +1,12 @@
+<p>Please enter a user ID</p>
+<input type="number" [(ngModel)]="userId">
+<button (click)="getUserByID(userId)">Get User</button>
+
+<p>{{currentUser.name}}</p>
+<p>{{currentUser.city}}</p>
+<p>latitude</p>
+<p>{{latitude}}</p>
+<p>longitude</p>
+<p>{{longitude}}</p>
+<p>Elevation</p>
+<p>{{altitude}} meters</p>
